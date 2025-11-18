@@ -24,12 +24,12 @@ export default async function handler(req, res) {
     if (!messages || !Array.isArray(messages)) {
       return res.status(400).json({ error: 'Messages array is required' });
   }
-
+const OPENAI_KEY = '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';
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+        'Authorization': `Bearer ${OPENAI_KEY}`
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
